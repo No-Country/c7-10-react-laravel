@@ -1,4 +1,4 @@
-# c7-10-react-laravel
+#  despues de clonar
  #### composer install
  #### cp .env.example .env
  #### php artisan key:generate
