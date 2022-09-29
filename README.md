@@ -3,6 +3,9 @@
  #### cp .env.example .env
  #### php artisan key:generate
 
+ # correr proyecto
+ #### php artisan serve
+
  # en caso de subir imagenes
   #### php artisan storage:link
 
