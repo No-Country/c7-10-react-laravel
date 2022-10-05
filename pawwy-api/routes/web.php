@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Mail\WelcomeMailable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,10 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('email', function () {
-//     $email = new WelcomeMailable;
-//     Mail::to("pawwyuser@gmail.com")->send( $email);
-// });
+ Route::get('email', function (Request $request) {
+    $request['email'] = 'email';
+    $request['name'] = 'name';
+    $request['lastName'] = 'lastName';
+    $email = new WelcomeMailable($request->all());
+     Mail::to("pawwyuser@gmail.com")->send( $email);
+ });

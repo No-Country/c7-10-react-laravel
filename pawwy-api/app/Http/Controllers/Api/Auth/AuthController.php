@@ -47,9 +47,7 @@ class AuthController extends Controller
                 'lastName' => ['required'],
                 'email' => ['required', 'email'],
                 'password' => ['required'], 
-                'rol' => ['required'],
-                'phone' => ['required'],
-                'addres' => ['required'],
+                'rol' => ['required'], 
             ]
         );
 
@@ -61,7 +59,7 @@ class AuthController extends Controller
         );
         $token = $user->createToken('pawwy-app')->plainTextToken;
 
-        $email = new WelcomeMailable;
+        $email = new WelcomeMailable($request->all());
         Mail::to($data['email'] )->send( $email);
         return [
             'access_token' => $token,

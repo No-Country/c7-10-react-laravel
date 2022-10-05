@@ -19,15 +19,13 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'lastName' => fake()->lastName(),
-            'addres' => fake()->text(),
+            'lastName' => fake()->lastName(), 
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => bcrypt('1234567891'), // password
             'phone' => Str::random(10), 
             'state' => true,   
-            'rol' => 'cuidador',   
-            'src_image' => 'cuidador',   
+            'rol' => 'cuidador',      
             'remember_token' => Str::random(10),   
         ];
     }

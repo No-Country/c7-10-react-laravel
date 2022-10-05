@@ -11,15 +11,16 @@ class WelcomeMailable extends Mailable
 {
     use Queueable, SerializesModels;
      public $subject = " Welcome to Pawwy";
+     public $params;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($params)
     {
-        //
+        $this->params = $params;
     }
 
     /**
