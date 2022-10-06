@@ -1,7 +1,11 @@
-import { Box } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 import React from 'react'
+import { FormHome } from '../../components/Home/FormHome'
 
 export const HomePage = () => {
-  //Todo HomePage
-  return <Box color="red">Home Page</Box>
+  return (
+    <Container maxWidth="960px" padding="0">
+      <FormHome />
+    </Container>
+  )
 }

@@ -9,12 +9,17 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { FastField, Form, Formik } from 'formik'
+import jwtDecode from 'jwt-decode'
+import { useEffect } from 'react'
 
 import { CardAuth, scheme } from '../../components/Register/CardAuth'
 
 export const LoginPage = () => {
   return (
     <CardAuth title="Login" makeAccount={true}>
+      {/* lo de google */}
+      <div id="signInDiv"></div>
+
       {/* formulario  */}
       <Formik
         initialValues={{

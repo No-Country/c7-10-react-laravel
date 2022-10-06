@@ -1,7 +1,6 @@
-import googleIcon from '../../assets/icons/google.svg'
-import facebookIcon from '../../assets/icons/facebook.svg'
-import { Box, Button, Image, Stack } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Button, Image, Stack } from '@chakra-ui/react'
+import googleIcon from '../../assets/icons/auth-icons/google.svg'
+import facebookIcon from '../../assets/icons/auth-icons/facebook.svg'
 
 export const SocialAuht = () => {
   return (
