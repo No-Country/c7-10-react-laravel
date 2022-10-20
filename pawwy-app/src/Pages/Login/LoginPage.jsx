@@ -8,13 +8,18 @@ import {
   Link,
   Stack,
 } from '@chakra-ui/react'
+import axios from 'axios'
 import { FastField, Form, Formik } from 'formik'
-import jwtDecode from 'jwt-decode'
-import { useEffect } from 'react'
 
+import { useNavigate } from 'react-router-dom'
 import { CardAuth, scheme } from '../../components/Register/CardAuth'
+import { useAuth } from '../../hooks/useAuth'
+import { useUser } from '../../hooks/useUser'
+import { buildFormikErrors } from '../../utils/utils/builFormikErrors'
 
 export const LoginPage = () => {
+  const { handleSubmit } = useAuth()
+
   return (
     <CardAuth title="Login" makeAccount={true}>
       {/* lo de google */}
@@ -28,6 +33,7 @@ export const LoginPage = () => {
           remember: false,
         }}
         validationSchema={scheme}
+        onSubmit={handleSubmit}
       >
         {/* form */}
         <Stack as={Form}>

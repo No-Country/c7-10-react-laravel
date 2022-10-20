@@ -18,16 +18,16 @@ class DatabaseSeeder extends Seeder
 
          \App\Models\User::factory()->create([
             'name' => 'Pawwy',
-            'email' => 'admin@pawwy.free.com', 
-            'lastName' =>  'admin',  
+            'email' => 'admin@pawwy.free.com',
+            'lastName' =>  'admin',
             'email_verified_at' => now(),
-            'password' => bcrypt('0123456789'),  
-            'phone' => Str::random(10), 
-            'state' => true,   
-            'rol' => 'admin',      
-            'remember_token' => Str::random(10),  
+            'password' => bcrypt('password'),
+            'phone' => Str::random(10),
+            'state' => true,
+            'rol' => 'admin',
+            'remember_token' => Str::random(10),
          ]);
-         
+
          \App\Models\User::factory(10)->create();
     }
 }

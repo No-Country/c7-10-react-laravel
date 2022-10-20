@@ -5,7 +5,7 @@ import mascotas from '../../assets/images/mascotas.png'
 export const Footer = () => {
   return (
     <Box
-      marginBlockStart="500px"
+      marginBlockStart="262px"
       height="120px"
       backgroundColor="#82A7BF"
       position="relative"

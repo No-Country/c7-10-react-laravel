@@ -1,11 +1,18 @@
-import { Box, Flex } from '@chakra-ui/react'
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Box, Center, Flex, Spinner } from '@chakra-ui/react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom'
 import { Footer } from '../components/Footer/Footer'
 import { Navbar } from '../components/Navbar/Navbar'
+import { useUser } from '../hooks/useUser'
 
 export const RootPage = () => {
-  //Todo HomePage
+  const { user } = useUser()
+
+  // if (!user) return
+  console.log(user)
+
+  // HomePage
   return (
     <Box position="relative">
       <Box as={'header'}>
@@ -13,19 +20,6 @@ export const RootPage = () => {
         <Navbar />
 
         {/* breadcrumbs */}
-        <Box backgroundColor="#82A7BF">
-          <Flex
-            align="center"
-            height="50px"
-            justify="end"
-            maxWidth="960px"
-            margin="auto"
-          >
-            <Box as={Link} fontWeight="700" fontSize="1.5rem">
-              ¿Queres ser cuidador?
-            </Box>
-          </Flex>
-        </Box>
 
         <Box
           position="absolute"
@@ -38,7 +32,10 @@ export const RootPage = () => {
           rounded="100% 0% 85% 15% / 0% 100% 0% 100% "
         ></Box>
       </Box>
+      {/* contenido de la pagina */}
       <Outlet />
+
+      {/* footer */}
       <Footer />
     </Box>
   )

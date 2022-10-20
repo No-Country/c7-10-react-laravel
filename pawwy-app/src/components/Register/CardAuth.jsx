@@ -5,7 +5,7 @@ import * as yup from 'yup'
 
 import logo from '../../assets/images/logo.png'
 import mascotasImg from '../../assets/images/perro_gato.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const scheme = yup.object({
   email: yup
@@ -23,6 +23,8 @@ export const CardAuth = ({
   title = 'título',
   makeAccount = false,
 }) => {
+  const navigate = useNavigate()
+
   return (
     <Flex
       alignItems="center"
@@ -76,11 +78,15 @@ export const CardAuth = ({
           display="block"
           marginBlockStart="26px"
         >
-          {makeAccount ? 'Crear una cuenta' : 'Registrate'}
+          {makeAccount ? 'Crear una cuenta' : 'Iniciar Sessión'}
         </Box>
 
         <Center marginBlock="26px">
-          <Image src={logo} />
+          <Image
+            src={logo}
+            onClick={() => navigate('/')}
+            _hover={{ cursor: 'pointer' }}
+          />
         </Center>
       </Box>
     </Flex>

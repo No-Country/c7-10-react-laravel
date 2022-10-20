@@ -15,7 +15,7 @@ class PerfilCuidador extends Controller
      */
     public function index()
     {
-        $cuidadores=User::Where("rol","cuidador")->get();
+        $cuidadores = User::Where("rol","cuidador")->get();
         return $cuidadores;
     }
 

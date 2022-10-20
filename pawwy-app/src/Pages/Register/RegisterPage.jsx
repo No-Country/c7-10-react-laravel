@@ -6,22 +6,65 @@ import {
   Input,
   Stack,
 } from '@chakra-ui/react'
+import axios from 'axios'
 import { FastField, Form, Formik } from 'formik'
+import { useNavigate } from 'react-router-dom'
 import { CardAuth, scheme } from '../../components/Register/CardAuth'
+import { useAuth } from '../../hooks/useAuth'
+import { buildFormikErrors } from '../../utils/utils/builFormikErrors'
 
 export const RegisterPage = () => {
+  // const navigate = useNavigate()
+  const { handleSubmit } = useAuth('register')
+  // async function handleRegisterSubmit(values, formikBag) {
+  //   try {
+  //     const { data } = await axios.post(
+  //       `${import.meta.env.VITE_API_URL}/register`,
+  //       {
+  //         ...values,
+  //       }
+  //     )
+
+  //     localStorage.setItem('access_token', data.access_token)
+  //     navigate('/')
+  //   } catch (error) {
+  //     const errors = buildFormikErrors(error?.response?.data?.errors)
+  //     formikBag.setErrors(errors)
+  //     localStorage.removeItem('access_token')
+  //   }
+  // }
+
   return (
     <CardAuth title="Register" makeAccount={false}>
       <Formik
         initialValues={{
+          name: '',
           email: '',
           password: '',
-          remember: false,
         }}
+        onSubmit={handleSubmit}
         validationSchema={scheme}
       >
         {/* form */}
         <Stack as={Form}>
+          {/* name */}
+          <FastField name="name">
+            {({ field, meta }) => (
+              <FormControl isInvalid={!!meta.error}>
+                <FormLabel>Name:</FormLabel>
+                <Input
+                  {...field}
+                  borderColor="#82A7BF"
+                  id="name"
+                  placeholder="Tu nombre"
+                  rounded="14px"
+                  type="text"
+                />
+                <FormErrorMessage>{meta.error}</FormErrorMessage>
+              </FormControl>
+            )}
+          </FastField>
+
           {/* email */}
           <FastField name="email">
             {({ field, meta }) => (
